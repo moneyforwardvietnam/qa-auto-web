@@ -1,0 +1,17 @@
+{
+  "name": "PRE_LOGIN_PAGE",
+  "detectors": {
+    "web": "PRE_LOGIN_PAGE_CONTINUE_BUTTON"
+  },
+  "elements": [
+    {
+      "name": "PRE_LOGIN_PAGE_CONTINUE_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//button[@type='button']",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}

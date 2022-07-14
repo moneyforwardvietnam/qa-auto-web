@@ -1,0 +1,44 @@
+{
+  "name": "LOGIN_PAGE",
+  "detectors": {
+    "web": "LOGIN_PAGE_LOGIN_FORM"
+  },
+  "elements": [
+    {
+      "name": "LOGIN_PAGE_LOGIN_FORM",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(@class,'mainContent')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "LOGIN_PAGE_USERNAME_INPUT",
+      "locators": {
+        "web": {
+          "selector": "mfid_user[email]",
+          "strategy": "name"
+        }
+      }
+    },
+    {
+      "name": "LOGIN_PAGE_PASSWORD_INPUT",
+      "locators": {
+        "web": {
+          "selector": "mfid_user[password]",
+          "strategy": "name"
+        }
+      }
+    },
+    {
+      "name": "LOGIN_PAGE_SUBMIT_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//input[@type='submit']",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}

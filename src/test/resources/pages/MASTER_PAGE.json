@@ -1,0 +1,17 @@
+{
+  "name": "MASTER_PAGE",
+  "detectors": {
+    "web": "MASTER_PAGE_LEFT_MENU"
+  },
+  "elements": [
+    {
+      "name": "MASTER_PAGE_LEFT_MENU",
+      "locators": {
+        "web": {
+          "selector": "//ul[@class='el-menu'",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}

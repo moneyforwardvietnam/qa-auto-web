@@ -1,0 +1,17 @@
+{
+  "name": "REPORT_PAGE",
+  "detectors": {
+    "web": "REPORT_PAGE_TITLE_LABEL"
+  },
+  "elements": [
+    {
+      "name": "REPORT_PAGE_TITLE_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='title-bar__title' and (contains(text(),'Report') or contains(text(),'レポート'))]",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}
