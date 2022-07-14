@@ -1,0 +1,25 @@
+{
+  "name": "QUOTATION_PAGE",
+  "detectors": {
+    "web": "QUOTATION_PAGE_TITLE_LABEL"
+  },
+  "elements": [
+    {
+      "name": "QUOTATION_PAGE_TITLE_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='title-bar__title' and (contains(text(),'Quotation') or contains(text(),'見積書'))]",
+          "strategy": "xpath"
+        }
+      }
+    },{
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//button[@class='el-button el-button--primary']",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}

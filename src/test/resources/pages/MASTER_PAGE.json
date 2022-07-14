@@ -8,7 +8,34 @@
       "name": "MASTER_PAGE_LEFT_MENU",
       "locators": {
         "web": {
-          "selector": "//ul[@class='el-menu'",
+          "selector": "//ul[@class='el-menu']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "MASTER_PAGE_LANGUAGE_SETTING_DROPDOWN",
+      "locators": {
+        "web": {
+          "selector": "//span[@class='language__label']//parent::div[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "MASTER_PAGE_LANGUAGE_SETTING_JAPANESE_ITEM",
+      "locators": {
+        "web": {
+          "selector": "//li[@class='el-dropdown-menu__item option' and contains(text(),'日本語')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "MASTER_PAGE_LANGUAGE_SETTING_ENGLISH_ITEM",
+      "locators": {
+        "web": {
+          "selector": "//li[@class='el-dropdown-menu__item option' and contains(text(),'English')]",
           "strategy": "xpath"
         }
       }

@@ -199,10 +199,11 @@ public class WebDriverUtil {
 
         do {
             try {
+                System.out.println("Searching for element -> " + elementName);
                 getElement(elementName);
-                i += 1;
-            } catch (Exception e) {
                 found = true;
+            } catch (Exception e) {
+                i += 1;
             }
         } while (i <= n && !found);
 

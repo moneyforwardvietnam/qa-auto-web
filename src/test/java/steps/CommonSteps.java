@@ -157,4 +157,16 @@ public class CommonSteps extends BaseStep {
     public void userWaitsForSeconds(int sec) {
         helper.delaySync(sec);
     }
+
+    @And("User clicks on {string} by {string}")
+    public void userClicksOnBy(String elementType, String visibleText) {
+        String xpath = "//span[contains(text(),'" + visibleText + "')]//parent::" + elementType + "[1]";
+        driverUtil.getElementByXPath(xpath).click();
+    }
+
+    @Given("User switch to language {string}")
+    public void userSwitchToLanguage(String language) {
+        driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_DROPDOWN");
+        driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
+    }
 }

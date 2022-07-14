@@ -1,13 +1,14 @@
 @common
-Feature: Common actions
+Feature: Common steps
 
-  Scenario: Common actions
+  Scenario: Common steps
     Given User redirects to "arm.staging"
       And "page" shows up
       And "page" shows up in 2 timeout
       And User clicks on "element"
       And User clicks on "element" by JS
       And User clicks on "element" if present
+      And User clicks on "elementType" by "visibleText"
       And User types "text" into "element"
       And User types "text" into "element" by JS
       And User refresh browser
@@ -29,3 +30,6 @@ Feature: Common actions
       And User mouse hover on "element"
       And User press key "ENTER"
       And User waits for 5 seconds
+
+  Scenario: Business steps
+    Given User switch to language "English"
