@@ -12,11 +12,21 @@
           "strategy": "xpath"
         }
       }
-    },{
+    },
+    {
       "name": "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON",
       "locators": {
         "web": {
           "selector": "//button[@class='el-button el-button--primary']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='quotation-client-name-input']",
           "strategy": "xpath"
         }
       }
