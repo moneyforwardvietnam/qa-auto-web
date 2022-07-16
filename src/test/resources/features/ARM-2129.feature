@@ -29,6 +29,6 @@ Feature: [ARM-2129] Can create quotation
     Then "QUOTATION_PAGE" shows up
       And User clicks on "BUTTON" by "Create"
       And "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present
-      #And Create button in the quotation creation screen should be enabled initially
+      And Create button in the quotation creation screen should be enabled initially
 
 

@@ -22,4 +22,6 @@ public class LoginSteps extends BaseStep {
         driverUtil.typeText(pass, "LOGIN_PAGE_PASSWORD_INPUT");
         driverUtil.clickElement("LOGIN_PAGE_SUBMIT_BUTTON");
     }
+
+
 }
