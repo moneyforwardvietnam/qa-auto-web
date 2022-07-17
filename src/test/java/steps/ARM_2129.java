@@ -13,13 +13,15 @@ public class ARM_2129 extends BaseStep {
 
     public ARM_2129() {
         driverUtil = new WebDriverUtil();
-        helper = new Helper();
+        helper = new Helper(driverUtil);
     }
 
     @And("Create button in the quotation creation screen should be enabled initially")
     public void createButtonInTheQuotationCreationScreenShouldBeEnabledInitially() {
         driverUtil.clickElement("QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON");
+        helper.delaySync(1);
         driverUtil.assertElementPresent("QUOTATION_PAGE_NEW_QUOTATION_ERROR_MESSAGE_LABEL");
+        helper.takeScreenshot();
     }
 
     @When("User enter Client info as below")

@@ -42,7 +42,7 @@ Feature: [ARM-2129] Can create quotation
       And User waits for 5 seconds
     Examples:
       | quotation_number | quote_date | expiration_date |
-      | 123              | 2022/07/17 | 2022/07/31      |
+      | 123              | 2022/07/17 | 2022/08/30      |
 
 
 

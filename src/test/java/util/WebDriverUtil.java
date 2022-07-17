@@ -3,6 +3,7 @@ package util;
 import com.google.gson.JsonObject;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -18,7 +19,7 @@ public class WebDriverUtil {
     private JavascriptExecutor executor;
     private Actions builder;
     private Helper helper;
-    private CustomStringUtil customStringUtil;
+    private CustomStringUtil csUtil;
     private JsonUtil jsonUtil;
 
     public WebDriverUtil() {
@@ -26,7 +27,7 @@ public class WebDriverUtil {
         executor = (JavascriptExecutor) this.driver;
         builder = new Actions(this.driver);
         helper = new Helper();
-        customStringUtil = new CustomStringUtil();
+        csUtil = new CustomStringUtil();
         jsonUtil = new JsonUtil();
     }
 
@@ -37,8 +38,8 @@ public class WebDriverUtil {
     public WebElement getElement(String elementName) {
         // TODO Auto-generated method stub
         String jPath = "$.elements[?(@.name=='" + elementName + "')].locators.web";
-        String pageName = customStringUtil.extractPageName(elementName);
-        File jFile = new File(customStringUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
+        String pageName = csUtil.extractPageName(elementName);
+        File jFile = new File(csUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
 
         JsonObject jo = jsonUtil.fetchJsonObjectFromFile(jFile, jPath);
 
@@ -68,8 +69,8 @@ public class WebDriverUtil {
 
     public String getElementLocator(String elementName) {
         String jPath = "$.elements[?(@.name=='" + elementName + "')].locators.web";
-        String pageName = customStringUtil.extractPageName(elementName);
-        File jFile = new File(customStringUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
+        String pageName = csUtil.extractPageName(elementName);
+        File jFile = new File(csUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
 
         JsonObject jo = jsonUtil.fetchJsonObjectFromFile(jFile, jPath);
 
@@ -116,15 +117,15 @@ public class WebDriverUtil {
 
     public void assertPageShowUp(String pageName) throws IOException {
         String jPath = "$.detectors.web";
-        File jFile = new File(customStringUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
-        String element = customStringUtil.getPureString(jsonUtil.fetchJsonStringFromFile(jFile, jPath));
+        File jFile = new File(csUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
+        String element = csUtil.getPureString(jsonUtil.fetchJsonStringFromFile(jFile, jPath));
         getElement(element);
     }
 
     public void assertPageShowUpInGivenTimeout(String pageName, int n) throws IOException {
         String jPath = "$.detectors.web";
-        File jFile = new File(customStringUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
-        String element = customStringUtil.getPureString(jsonUtil.fetchJsonStringFromFile(jFile, jPath));
+        File jFile = new File(csUtil.getFullPathFromFragments(new String[]{"src", "test", "resources", "pages", pageName + ".json"}));
+        String element = csUtil.getPureString(jsonUtil.fetchJsonStringFromFile(jFile, jPath));
         assertElementPresentInGivenTimeout(element, n);
     }
 
@@ -354,5 +355,20 @@ public class WebDriverUtil {
                 builder.sendKeys(Keys.DECIMAL).build().perform();
                 break;
         }
+    }
+
+    public String takeSnapShot(String fileName) {
+        TakesScreenshot scrShot = (TakesScreenshot) driver;
+        File scrFile = scrShot.getScreenshotAs(OutputType.FILE);
+        CustomStringUtil csUtil = new CustomStringUtil();
+        String fileWithPath = csUtil.getFullPathFromFragments(new String[]{"target", "site", "serenity", fileName + ".png"});
+        File destFile = new File(fileWithPath);
+
+        try {
+            FileUtils.copyFile(scrFile, destFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileWithPath;
     }
 }

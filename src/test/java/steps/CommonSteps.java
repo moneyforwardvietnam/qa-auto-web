@@ -167,6 +167,10 @@ public class CommonSteps extends BaseStep {
     @Given("User switch to language {string}")
     public void userSwitchToLanguage(String language) {
         driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_DROPDOWN");
-        driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
+        try {
+            driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
+        } catch (Exception e) {
+            driverUtil.clickElementByJS("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
+        }
     }
 }
