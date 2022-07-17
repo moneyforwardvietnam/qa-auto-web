@@ -3,8 +3,9 @@ package util;
 import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class Helper {
@@ -21,7 +22,7 @@ public class Helper {
             String[] arr = new String[]{"src", "test", "resources", "config.properties"};
 
             try {
-                InputStream is = new FileInputStream(customStringUtil.getFullPathFromFragments(arr));
+                InputStream is = Files.newInputStream(Paths.get(customStringUtil.getFullPathFromFragments(arr)));
                 prop.load(is);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -48,6 +49,14 @@ public class Helper {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void compareEqual(Object source, Object target) {
+        Assert.assertEquals(source, target);
+    }
+
+    public void compareNotEqual(Object source, Object target) {
+        Assert.assertNotEquals(source, target);
     }
 
     public void writeLogToReport(String title, String content) {

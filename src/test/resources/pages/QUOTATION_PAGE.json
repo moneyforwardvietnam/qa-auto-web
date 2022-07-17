@@ -26,15 +26,61 @@
       "name": "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT",
       "locators": {
         "web": {
-          "selector": "//div[@class='quotation-client-name-input']",
+          "selector": "//div[@class='quotation-client-name-input']//child::input[1]",
           "strategy": "xpath"
         }
       }
-    },{
+    },
+    {
       "name": "QUOTATION_PAGE_NEW_QUOTATION_ERROR_MESSAGE_LABEL",
       "locators": {
         "web": {
           "selector": "//div[contains(text(),'Please input client')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_DETAILS_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'Client detail')]//following::textarea[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_TITLE_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'Title')]//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_QUOTATION_NUMBER_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'Quotation number')]//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_QUOTE_DATE_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'Quote date')]//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_EXPIRATION_DATE_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'Expiration date')]//following::input[1]",
           "strategy": "xpath"
         }
       }
