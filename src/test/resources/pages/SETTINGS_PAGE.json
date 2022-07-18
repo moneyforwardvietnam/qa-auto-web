@@ -1,0 +1,71 @@
+{
+  "name": "SETTINGS_PAGE",
+  "detectors": {
+    "web": "SETTINGS_PAGE_TITLE_LABEL"
+  },
+  "elements": [
+    {
+      "name": "SETTINGS_PAGE_TITLE_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='title-bar__title' and (contains(text(),'Report') or contains(text(),'設定'))]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//span[contains(text(),'見積書')]//parent::div[1]//parent::li[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_PREVIEW_HEADER_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='section-title__text' and contains(text(),'プレビュー')]//following::h1[contains(text(),'見積書')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//p[text()='見積書のテンプレートを保存しました。']//parent::div[@class='el-message el-message--success is-closable']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//button[@class='el-button btn-save el-button--primary']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_RESET_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//button[@class='el-button btn-reset el-button--default']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_REMARKS_TEXTAREA",
+      "locators": {
+        "web": {
+          "selector": "//label[contains(text(),'備考')]//following::textarea[1]",
+          "strategy": "xpath"
+        }
+      }
+    }
+  ]
+}
