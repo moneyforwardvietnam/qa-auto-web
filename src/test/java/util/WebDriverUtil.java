@@ -254,15 +254,15 @@ public class WebDriverUtil {
         Assert.assertTrue(element.getText().trim().contains(expectedText));
     }
 
-    public void assertElementAttributeHasValue(String elementName, String attribute, String expected) {
-        Assert.assertEquals(getElement(elementName).getAttribute(attribute).trim(), expected);
+    public void assertElementAttributeHasValue(String attribute, String elementName, String expected) {
+        Assert.assertEquals(expected, getElement(elementName).getAttribute(attribute).trim());
     }
 
     public void assertElementAttributeHasValue(WebElement element, String attribute, String expected) {
-        Assert.assertEquals(element.getAttribute(attribute).trim(), expected);
+        Assert.assertEquals(expected, element.getAttribute(attribute).trim());
     }
 
-    public void assertElementAttributeContainValue(String elementName, String attribute, String expected) {
+    public void assertElementAttributeContainValue(String attribute, String elementName, String expected) {
         Assert.assertTrue(getElement(elementName).getAttribute(attribute).trim().contains(expected));
     }
 
