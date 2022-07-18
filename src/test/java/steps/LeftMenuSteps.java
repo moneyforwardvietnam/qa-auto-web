@@ -10,7 +10,7 @@ public class LeftMenuSteps extends BaseStep {
 
     public LeftMenuSteps() {
         driverUtil = new WebDriverUtil();
-        helper = new Helper();
+        helper = new Helper(driverUtil);
     }
 
     @And("User navigate to {string} on left menu")

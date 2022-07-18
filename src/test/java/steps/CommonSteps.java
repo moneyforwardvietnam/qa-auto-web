@@ -12,7 +12,7 @@ public class CommonSteps extends BaseStep {
 
     public CommonSteps() {
         driverUtil = new WebDriverUtil();
-        helper = new Helper();
+        helper = new Helper(driverUtil);
     }
 
     @Given("User redirects to {string}")

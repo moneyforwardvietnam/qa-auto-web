@@ -10,7 +10,7 @@ public class LoginSteps extends BaseStep {
 
     public LoginSteps() {
         driverUtil = new WebDriverUtil();
-        helper = new Helper();
+        helper = new Helper(driverUtil);
     }
 
     @And("User enter valid credentials")

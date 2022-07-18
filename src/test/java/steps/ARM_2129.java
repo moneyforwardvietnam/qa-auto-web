@@ -19,8 +19,7 @@ public class ARM_2129 extends BaseStep {
     @And("Create button in the quotation creation screen should be enabled initially")
     public void createButtonInTheQuotationCreationScreenShouldBeEnabledInitially() {
         driverUtil.clickElement("QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON");
-        helper.delaySync(1);
-        driverUtil.assertElementPresent("QUOTATION_PAGE_NEW_QUOTATION_ERROR_MESSAGE_LABEL");
+        driverUtil.assertElementPresentInGivenTimeout("QUOTATION_PAGE_NEW_QUOTATION_ERROR_MESSAGE_LABEL",2);
         helper.takeScreenshot();
     }
 

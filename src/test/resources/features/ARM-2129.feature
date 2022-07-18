@@ -3,7 +3,7 @@ Feature: [ARM-2129] Can create quotation
 
   Background: User is Logged In
     Given User redirects to "arm.staging"
-      And "PRE_LOGIN_PAGE" shows up
+      And "PRE_LOGIN_PAGE" shows up in 4 timeout
       And User clicks on "PRE_LOGIN_PAGE_CONTINUE_BUTTON"
       And "LOGIN_PAGE" shows up
     When User enter valid credentials
@@ -15,7 +15,7 @@ Feature: [ARM-2129] Can create quotation
     Given User navigate to "Quotations" on left menu
       And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
-    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
       And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
 
   @C4925
@@ -23,7 +23,7 @@ Feature: [ARM-2129] Can create quotation
     Given User navigate to "Quotations" on left menu
       And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
-    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
       And Create button in the quotation creation screen should be enabled initially
 
   @C4930
@@ -31,7 +31,7 @@ Feature: [ARM-2129] Can create quotation
     Given User navigate to "Quotations" on left menu
       And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
-    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
     When User enter Client info as below
       | client         | vu bach       |
       | client_details | Money Forward |
