@@ -13,7 +13,7 @@ Feature: [ARM-2129] Can create quotation
   @C4924
   Scenario: C4924 - Verify UI of Quotation Menu in Left Menu bar & Create screen of quotation
     Given User navigate to "Quotations" on left menu
-      And "QUOTATION_PAGE" shows up
+      And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
     Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
       And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
@@ -21,7 +21,7 @@ Feature: [ARM-2129] Can create quotation
   @C4925
   Scenario: C4925 - Verify Create button in the quotation creation screen is enabled initially
     Given User navigate to "Quotations" on left menu
-      And "QUOTATION_PAGE" shows up
+      And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
     Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
       And Create button in the quotation creation screen should be enabled initially
@@ -29,7 +29,7 @@ Feature: [ARM-2129] Can create quotation
   @C4930
   Scenario Outline: C4930 - Verify Quotation is created with the mandatory fields alone
     Given User navigate to "Quotations" on left menu
-      And "QUOTATION_PAGE" shows up
+      And "QUOTATION_PAGE" shows up in 5 timeout
     When User clicks on "BUTTON" by "Create"
     Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 4 timeout
     When User enter Client info as below
