@@ -10,7 +10,7 @@ Feature: [ARM-2129] Can create quotation
     Then "MASTER_PAGE" shows up in 4 timeout
 
   @QDS-01
-  Scenario: QDS-01 Verify UI of Quotation Menu in Left Menu bar & Create screen of quotation
+  Scenario Outline: QDS-01 Verify User can access and see default values in Quotation Default setting
     Given User navigate to "Settings" on left menu
       And "SETTINGS_PAGE" shows up
     When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
@@ -18,10 +18,23 @@ Feature: [ARM-2129] Can create quotation
       And User waits for 2 seconds
     When User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
     Then "SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL" is present
+      And "value" of "SETTINGS_PAGE_QUOTATION_REMARKS_TEXTAREA" has ""
     When User types "test Reset button" into "SETTINGS_PAGE_QUOTATION_REMARKS_TEXTAREA"
       And User waits for 2 seconds
       And User clicks on "SETTINGS_PAGE_QUOTATION_RESET_BUTTON"
     Then "value" of "SETTINGS_PAGE_QUOTATION_REMARKS_TEXTAREA" has ""
+      And "class" of "SETTINGS_PAGE_QUOTATION_DELETE_IMAGE_BUTTON" contains "disabled"
+      And "value" of "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA" has "<issuer_default_val>"
+    When User types "<issuer_editable_val>" into "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User waits for 2 seconds
+    Then "value" of "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA" has "<issuer_editable_val>"
+      And "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_DEFAULT_LABEL" is present
+
+    Examples:
+      | issuer_default_val | issuer_editable_val  |
+      | ARM Bear Office 11 | test Issuer editable |
+
+
 
 
 
