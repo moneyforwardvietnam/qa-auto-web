@@ -66,6 +66,32 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_DELETE_IMAGE_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//div[contains(text(),'画像を削除') and contains(@class,'delete-link')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA",
+      "locators": {
+        "web": {
+          "selector": "//label[contains(text(),'発行元')]//following::textarea[1]",
+          "strategy": "xpath"
+        }
+      }
+    },{
+      "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_DEFAULT_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='stamp-image']//child::span[contains(text(),'未設定')]",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }
