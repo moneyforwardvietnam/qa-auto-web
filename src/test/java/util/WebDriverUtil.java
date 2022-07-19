@@ -229,6 +229,7 @@ public class WebDriverUtil {
             try {
                 getElement(elementName);
                 i += 1;
+                helper.delaySync(5);
             } catch (Exception e) {
                 found = false;
             }
