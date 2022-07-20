@@ -240,11 +240,11 @@ public class WebDriverUtil {
     }
 
     public void assertElementShowText(String elementName, String expectedText) {
-        Assert.assertEquals(getElement(elementName).getText().trim(), expectedText);
+        Assert.assertEquals(expectedText, getElement(elementName).getText().trim());
     }
 
     public void assertElementShowText(WebElement element, String expectedText) {
-        Assert.assertEquals(element.getText().trim(), expectedText);
+        Assert.assertEquals(expectedText, element.getText().trim());
     }
 
     public void assertElementContainText(String elementName, String expectedText) {
