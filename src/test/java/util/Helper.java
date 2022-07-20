@@ -6,6 +6,7 @@ import org.junit.Assert;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -129,5 +130,15 @@ public class Helper {
         driverUtil.takeSnapShot(fileName);
         writeLogToReport("<img src='" + fileName + ".png'>", String.valueOf(ssId));
         writeGlobalParam(key, String.valueOf(ssId), String.valueOf(nextSSID));
+    }
+
+    public String randomString(int len) {
+        final String AB = "文字以内で入力してください";
+        SecureRandom rnd = new SecureRandom();
+
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++)
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+        return sb.toString();
     }
 }

@@ -288,6 +288,7 @@ public class WebDriverUtil {
     }
 
     public void pressKey(String keyCode) {
+        String OS = System.getProperty("os.name");
         switch (keyCode) {
             case "ESC":
                 builder.sendKeys(Keys.ESCAPE).build().perform();
@@ -300,6 +301,9 @@ public class WebDriverUtil {
                 break;
             case "BACK_SPACE":
                 builder.sendKeys(Keys.BACK_SPACE).build().perform();
+                break;
+            case "DEL":
+                builder.sendKeys(Keys.DELETE).build().perform();
                 break;
             case "DOWN":
                 builder.sendKeys(Keys.ARROW_DOWN).build().perform();
@@ -314,13 +318,22 @@ public class WebDriverUtil {
                 builder.sendKeys(Keys.PAGE_UP).build().perform();
                 break;
             case "CTRL_A":
-                builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0061')).keyUp(Keys.CONTROL).build().perform();
+                if (OS.startsWith("Windows"))
+                    builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0061')).keyUp(Keys.CONTROL).build().perform();
+                else
+                    builder.keyDown(Keys.COMMAND).sendKeys(String.valueOf('\u0061')).keyUp(Keys.COMMAND).build().perform();
                 break;
             case "CTRL_C":
-                builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0063')).keyUp(Keys.CONTROL).build().perform();
+                if (OS.startsWith("Windows"))
+                    builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0063')).keyUp(Keys.CONTROL).build().perform();
+                else
+                    builder.keyDown(Keys.COMMAND).sendKeys(String.valueOf('\u0063')).keyUp(Keys.COMMAND).build().perform();
                 break;
             case "CTRL_V":
-                builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0076')).keyUp(Keys.CONTROL).build().perform();
+                if (OS.startsWith("Windows"))
+                    builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0076')).keyUp(Keys.CONTROL).build().perform();
+                else
+                    builder.keyDown(Keys.COMMAND).sendKeys(String.valueOf('\u0076')).keyUp(Keys.COMMAND).build().perform();
                 break;
             case "NUM_0":
                 builder.sendKeys(Keys.NUMPAD0).build().perform();
