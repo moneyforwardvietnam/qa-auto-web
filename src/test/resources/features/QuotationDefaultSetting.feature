@@ -34,6 +34,23 @@ Feature: [ARM-2129] Can create quotation
       | issuer_default_val | issuer_editable_val  |
       | ARM Bear Office 11 | test Issuer editable |
 
+  @QDS-06
+  Scenario: QDS-06 Verify Validate of Quotation Default setting
+    Given User navigate to "Settings" on left menu
+      And "SETTINGS_PAGE" shows up
+    When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_PREVIEW_HEADER_LABEL" is present
+    When User enter a string with 201 chars into "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_ERROR_MESSAGE_LABEL" shows "200文字以内で入力してください"
+    When User clicks on "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User press key "CTRL_A"
+      And User press key "DEL"
+      And User waits for 1 seconds
+      And User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
+      And User waits for 2 seconds
+    Then "SETTINGS_PAGE_QUOTATION_ERROR_MESSAGE_LABEL" shows "入力してください"
+
 
 
 

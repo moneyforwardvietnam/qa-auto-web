@@ -84,11 +84,20 @@
           "strategy": "xpath"
         }
       }
-    },{
+    },
+    {
       "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_DEFAULT_LABEL",
       "locators": {
         "web": {
           "selector": "//div[@class='stamp-image']//child::span[contains(text(),'未設定')]",
+          "strategy": "xpath"
+        }
+      }
+    },{
+      "name": "SETTINGS_PAGE_QUOTATION_ERROR_MESSAGE_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='el-form-item__error']",
           "strategy": "xpath"
         }
       }
