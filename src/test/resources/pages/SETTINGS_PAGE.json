@@ -93,7 +93,26 @@
           "strategy": "xpath"
         }
       }
-    },{
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_HAS_IMAGE",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='stamp-image has-img']//child::img[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_UPLOAD_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//*[@type='file']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
       "name": "SETTINGS_PAGE_QUOTATION_ERROR_MESSAGE_LABEL",
       "locators": {
         "web": {
