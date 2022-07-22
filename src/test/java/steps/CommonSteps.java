@@ -161,7 +161,17 @@ public class CommonSteps extends BaseStep {
     @And("User clicks on {string} by {string}")
     public void userClicksOnBy(String elementType, String visibleText) {
         String xpath = "//span[contains(text(),'" + visibleText + "')]//parent::" + elementType + "[1]";
-        driverUtil.getElementByXPath(xpath).click();
+        try {
+            driverUtil.getElementByXPath(xpath).click();
+        } catch (Exception e) {
+            switch (visibleText) {
+                case "Create":
+                    visibleText = "新規作成";
+                    break;
+            }
+            xpath = "//span[contains(text(),'" + visibleText + "')]//parent::" + elementType + "[1]";
+            driverUtil.getElementByXPath(xpath).click();
+        }
     }
 
     @Given("User switch to language {string}")

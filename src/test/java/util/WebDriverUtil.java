@@ -267,6 +267,10 @@ public class WebDriverUtil {
         Assert.assertTrue(getElement(elementName).getAttribute(attribute).trim().contains(expected));
     }
 
+    public void assertElementAttributeNotContainValue(String attribute, String elementName, String expected) {
+        Assert.assertFalse(getElement(elementName).getAttribute(attribute).trim().contains(expected));
+    }
+
     public void assertElementAttributeContainValue(WebElement element, String attribute, String expected) {
         Assert.assertTrue(element.getAttribute(attribute).trim().contains(expected));
     }

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "json:target/cucumber_json/cucumber.json"},
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@QuotationDefaultSetting"
+        tags = "@QDS-14"
 
 )
 public class CucumberTestSuite {

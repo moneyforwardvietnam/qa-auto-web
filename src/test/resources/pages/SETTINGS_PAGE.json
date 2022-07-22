@@ -104,6 +104,15 @@
       }
     },
     {
+      "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_PREVIEW_IMAGE",
+      "locators": {
+        "web": {
+          "selector": "(//div[@class='stamp'])[2]//child::img[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
       "name": "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_UPLOAD_INPUT",
       "locators": {
         "web": {
@@ -117,6 +126,24 @@
       "locators": {
         "web": {
           "selector": "//div[@class='el-form-item__error']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_ISSUER_PREVIEW_LABEL",
+      "locators": {
+        "web": {
+          "selector": "(//div[@class='publisher'])[2]//child::span[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "SETTINGS_PAGE_QUOTATION_REMARKS_PREVIEW_LABEL",
+      "locators": {
+        "web": {
+          "selector": "(//div[@class='label' and contains(text(),'備考')]//following::div[1])[1]//child::span[1]",
           "strategy": "xpath"
         }
       }

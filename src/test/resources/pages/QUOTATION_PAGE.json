@@ -84,6 +84,33 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_FIRST_ITEM_NAME_INPUT",
+      "locators": {
+        "web": {
+          "selector": "(//div[@class='cell' and contains(text(),'品目')]//following::div[@class='el-dropdown'])[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//p[text()='見積書を作成しました。']//parent::div[@class='el-message el-message--success is-closable']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL",
+      "locators": {
+        "web": {
+          "selector": "(//div[@class='publisher'])[2]//child::span[1]",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }

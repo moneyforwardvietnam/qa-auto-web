@@ -33,3 +33,4 @@ Feature: Common steps
 
   Scenario: Business steps
     Given User switch to language "English"
+
