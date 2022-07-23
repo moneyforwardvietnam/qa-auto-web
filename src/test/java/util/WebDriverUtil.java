@@ -405,6 +405,11 @@ public class WebDriverUtil {
         return fileWithPath;
     }
 
+    public boolean lookUpWebTableByHeader(String header, String lookedUpVal) {
+        String xpath = "//td[count(//th[.='" + header + "']/preceding-sibling::th) +1][.='" + lookedUpVal + "']";
+        return getElementsByXPath(xpath).size() > 0;
+    }
+
     public void terminate() {
         driver.quit();
     }

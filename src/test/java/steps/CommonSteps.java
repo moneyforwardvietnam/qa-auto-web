@@ -6,6 +6,8 @@ import io.cucumber.java.en.When;
 import util.Helper;
 import util.WebDriverUtil;
 
+import java.util.Map;
+
 public class CommonSteps extends BaseStep {
     private WebDriverUtil driverUtil;
     private Helper helper;
@@ -183,6 +185,18 @@ public class CommonSteps extends BaseStep {
             driverUtil.clickElement("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
         } catch (Exception e) {
             driverUtil.clickElementByJS("MASTER_PAGE_LANGUAGE_SETTING_" + language.toUpperCase() + "_ITEM");
+        }
+    }
+
+    @And("Current web table should contain below data")
+    public void currentWebTableShouldContainBelowData(Map<String, String> table) {
+        String header;
+        String value;
+        for (Map.Entry<String, String> entry : table.entrySet()) {
+            header = entry.getKey().trim();
+            value = entry.getValue().trim();
+            if (!driverUtil.lookUpWebTableByHeader(header, value))
+                helper.writeStepFailed("Data not found -> Header = " + header + " , Value = " + value);
         }
     }
 }

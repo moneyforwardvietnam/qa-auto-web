@@ -210,6 +210,42 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "QUOTATION_PAGE_PAGINATION_TOTAL_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='pagination']//child::div[@class='pagination__total']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_PAGINATION_JUMPER_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='pagination']//child::div[@class='pagination__jumper']//child::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_PAGINATION_BACKWARD_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "(//*[contains(@class,'pagination__button')])[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_PAGINATION_FORWARD_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "(//*[contains(@class,'pagination__button')])[2]",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }

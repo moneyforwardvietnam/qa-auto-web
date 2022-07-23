@@ -223,6 +223,16 @@ Feature: Quotation
       And "QUOTATION_PAGE_CREATE_BUTTON" is present
       And "QUOTATION_PAGE_CREATE_BUTTON" should be "ENABLED"
       And "QUOTATION_PAGE_HIDE_SHOW_FILTER_BUTTON" is present
+      And "QUOTATION_PAGE_PAGINATION_TOTAL_LABEL" is present
+      And Current web table should contain below data
+        | 見積書番号  | 8           |
+        | 取引先     | BearCL999   |
+        | 件名       | -           |
+        | 見積日     | 2022/05/30  |
+        | 作成者     | Bear 11     |
+        | 見積金額   | ¥1,008      |
+
+
 
 
 
