@@ -23,6 +23,7 @@ public class CommonSteps extends BaseStep {
         url = "https://" + user + ":" + pass + "@" + url;
         driverUtil.goToURL(url);
         context.setContext("env", env);
+        context.setContext("baseURL", url);
     }
 
     @When("{string} shows up")

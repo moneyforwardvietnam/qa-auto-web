@@ -12,6 +12,15 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "PRE_LOGIN_PAGE_LOGIN_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//a[@class='btn']",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }

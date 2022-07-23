@@ -39,6 +39,15 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "LOGIN_PAGE_USE_ANOTHER_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//a[text()='他のアカウントを使用する']",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }

@@ -31,6 +31,15 @@ public class WebDriverUtil {
         jsonUtil = new JsonUtil();
     }
 
+    public WebDriverUtil(WebDriver p_driver) {
+        this.driver = p_driver;
+        executor = (JavascriptExecutor) this.driver;
+        builder = new Actions(this.driver);
+        helper = new Helper();
+        csUtil = new CustomStringUtil();
+        jsonUtil = new JsonUtil();
+    }
+
     public WebDriver getDriver() {
         return driver;
     }
@@ -339,6 +348,12 @@ public class WebDriverUtil {
                 else
                     builder.keyDown(Keys.COMMAND).sendKeys(String.valueOf('\u0076')).keyUp(Keys.COMMAND).build().perform();
                 break;
+            case "CTRL_T":
+                if (OS.startsWith("Windows"))
+                    builder.keyDown(Keys.CONTROL).sendKeys(String.valueOf('\u0074')).keyUp(Keys.CONTROL).build().perform();
+                else
+                    builder.keyDown(Keys.COMMAND).sendKeys(String.valueOf('\u0074')).keyUp(Keys.COMMAND).build().perform();
+                break;
             case "NUM_0":
                 builder.sendKeys(Keys.NUMPAD0).build().perform();
                 break;
@@ -388,5 +403,9 @@ public class WebDriverUtil {
             e.printStackTrace();
         }
         return fileWithPath;
+    }
+
+    public void terminate() {
+        driver.quit();
     }
 }

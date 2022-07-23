@@ -12,6 +12,14 @@
           "strategy": "xpath"
         }
       }
+    },{
+      "name": "MASTER_PAGE_LEFT_MENU_SETTINGS_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//ul[@class='el-menu']//child::span[contains(text(),'設定')]//parent::li[1]",
+          "strategy": "xpath"
+        }
+      }
     },
     {
       "name": "MASTER_PAGE_LANGUAGE_SETTING_DROPDOWN",
@@ -36,6 +44,24 @@
       "locators": {
         "web": {
           "selector": "//li[@class='el-dropdown-menu__item option' and contains(text(),'English')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "MASTER_PAGE_LOGGED_IN_USER_LABEL",
+      "locators": {
+        "web": {
+          "selector": "//span[@class='user__name']",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "MASTER_PAGE_LOGOUT_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//li[contains(text(),'ログアウト')]",
           "strategy": "xpath"
         }
       }

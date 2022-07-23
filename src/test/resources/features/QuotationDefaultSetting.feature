@@ -7,7 +7,7 @@ Feature: Quotation
       And User clicks on "PRE_LOGIN_PAGE_CONTINUE_BUTTON"
       And "LOGIN_PAGE" shows up
     When User enter valid credentials
-    Then "MASTER_PAGE" shows up in 4 timeout
+    Then "MASTER_PAGE" shows up in 10 timeout
 
 
   @QDS-01 @UI @Quotation
@@ -86,7 +86,57 @@ Feature: Quotation
     Then "SETTINGS_PAGE_QUOTATION_STAMP_IMAGE_DEFAULT_LABEL" is present
 
 
-  @QDS-14 @Func @Quotation
+  @QDS-13 @Func @Quotation
+  Scenario Outline: QDS-13 Verify two users in the same office have same Quotation setting
+    Given User navigate to "Settings" on left menu
+      And "SETTINGS_PAGE" shows up
+    When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_PREVIEW_HEADER_LABEL" is present
+    When User types "<issuer_office_1_input>" into "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL" is present
+    When User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+    When User clicks on "BUTTON" by "Create"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
+    When User select first "Client" for New Quotation
+      And User select first "Item" for New Quotation
+      And User clicks on "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL" is present
+      And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" shows "<issuer_office_1_input>"
+    When User logout ARM
+      And User clicks on "PRE_LOGIN_PAGE_LOGIN_BUTTON"
+    Then "PRE_LOGIN_PAGE" shows up in 4 timeout
+    When User clicks on "PRE_LOGIN_PAGE_CONTINUE_BUTTON"
+    Then "LOGIN_PAGE" shows up
+    When User clicks on "LOGIN_PAGE_USE_ANOTHER_BUTTON"
+      And User enter valid credentials of "diff.office"
+    Then "MASTER_PAGE" shows up in 10 timeout
+    When User navigate to "Settings" on left menu
+    Then "SETTINGS_PAGE" shows up
+    When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_PREVIEW_HEADER_LABEL" is present
+    When User types "<issuer_office_2_input>" into "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL" is present
+    When User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+    When User clicks on "BUTTON" by "Create"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
+    When User select first "Client" for New Quotation
+      And User clicks on "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL" is present
+      And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" shows "<issuer_office_2_input>"
+
+    Examples:
+      | issuer_office_1_input | issuer_office_2_input |
+      | ARM Test Office A     | ARM Test Office B     |
+
+
+  @QDS-14 @Func @Quotation #TODO: write scripts to switch to same office
   Scenario Outline: QDS-14 Verify two users in the same office have same Quotation setting
     Given User navigate to "Settings" on left menu
       And "SETTINGS_PAGE" shows up
@@ -105,10 +155,54 @@ Feature: Quotation
       And User clicks on "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON"
     Then "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL" is present
       And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" shows "<issuer_office_1_input>"
+    When User logout ARM
+      And User clicks on "PRE_LOGIN_PAGE_LOGIN_BUTTON"
+    Then "PRE_LOGIN_PAGE" shows up in 4 timeout
+    When User clicks on "PRE_LOGIN_PAGE_CONTINUE_BUTTON"
+    Then "LOGIN_PAGE" shows up
+    When User clicks on "LOGIN_PAGE_USE_ANOTHER_BUTTON"
+      And User enter valid credentials of "diff.office"
+    Then "MASTER_PAGE" shows up in 10 timeout
+    When User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+    When User clicks on "BUTTON" by "Create"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
+    When User select first "Client" for New Quotation
+      And User clicks on "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL" is present
+      And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" shows "<issuer_office_1_input>"
 
     Examples:
-      | issuer_office_1_input | issuer_office_2_input |
-      | ARM Test Office A     | ARM Test Office B     |
+      | issuer_office_1_input |
+      | ARM Test Office A     |
+
+
+  @QDS-15 @Func @Quotation #TODO: write scripts to switch to same office
+  Scenario Outline: QDS-15 Verify while one user creating quotation, if another one user update the quotation setting
+    Given User navigate to "Settings" on left menu
+      And "SETTINGS_PAGE" shows up
+    When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_PREVIEW_HEADER_LABEL" is present
+    When User types "<issuer_office_1_input>" into "SETTINGS_PAGE_QUOTATION_ISSUER_TEXTAREA"
+      And User clicks on "SETTINGS_PAGE_QUOTATION_SAVE_BUTTON"
+    Then "SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL" is present
+    When User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+    When User clicks on "BUTTON" by "Create"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON" is present in 5 timeout
+      And "QUOTATION_PAGE_NEW_QUOTATION_CLIENT_NAME_INPUT" is present
+    When User select first "Client" for New Quotation
+      And User select first "Item" for New Quotation
+      And User update Quotation setting using "same.office" account
+      And User clicks on "QUOTATION_PAGE_NEW_QUOTATION_CREATE_BUTTON"
+    Then "QUOTATION_PAGE_NEW_QUOTATION_SAVED_SUCCESS_LABEL" is present
+    And "QUOTATION_PAGE_NEW_QUOTATION_ISSUER_PREVIEW_LABEL" is present in 5 timeout
+
+    Examples:
+      | issuer_office_1_input |
+      | ARM Test Office A     |
 
 
 
