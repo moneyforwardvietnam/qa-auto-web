@@ -8,7 +8,7 @@
       "name": "REPORT_PAGE_TITLE_LABEL",
       "locators": {
         "web": {
-          "selector": "//div[@class='title-bar__title' and (contains(text(),'Report') or contains(text(),'レポート'))]",
+          "selector": "//div[@class='title-bar__title' and contains(text(),'レポート')]",
           "strategy": "xpath"
         }
       }

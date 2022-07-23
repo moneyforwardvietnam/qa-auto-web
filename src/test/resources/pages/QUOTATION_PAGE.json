@@ -8,7 +8,7 @@
       "name": "QUOTATION_PAGE_TITLE_LABEL",
       "locators": {
         "web": {
-          "selector": "//div[@class='title-bar__title' and (contains(text(),'Quotation') or contains(text(),'見積書'))]",
+          "selector": "//div[@class='title-bar__title' and contains(text(),'見積書')]",
           "strategy": "xpath"
         }
       }
@@ -108,6 +108,105 @@
       "locators": {
         "web": {
           "selector": "(//div[@class='publisher'])[2]//child::span[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_QUOTATION_NUM_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='見積書番号']//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_QUOTATION_CLIENT_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='取引先']//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_QUOTATION_TITLE_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='見積書番号']//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_QUOTATION_QUOTE_DATE_DATEPICKER",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='見積日']//following::div[contains(@class,'el-date-editor')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_CREATOR_DROPDOWN",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='作成者']//following::div[contains(@aria-controls,'dropdown-menu')]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_ESTIMATED_AMOUNT_FROM_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='見積金額']//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BY_ESTIMATED_AMOUNT_TO_INPUT",
+      "locators": {
+        "web": {
+          "selector": "//label[text()='見積金額']//following::input[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_FILTER_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//span[contains(text(),'絞り込み')]//parent::button[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_RESET_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//span[contains(text(),'リセット')]//parent::button[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_CREATE_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//span[contains(text(),'新規作成')]//parent::button[1]",
+          "strategy": "xpath"
+        }
+      }
+    },
+    {
+      "name": "QUOTATION_PAGE_HIDE_SHOW_FILTER_BUTTON",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='filter-form-toggle' and contains(text(),'絞り込み条件')]",
           "strategy": "xpath"
         }
       }

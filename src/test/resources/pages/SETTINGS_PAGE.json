@@ -8,7 +8,7 @@
       "name": "SETTINGS_PAGE_TITLE_LABEL",
       "locators": {
         "web": {
-          "selector": "//div[@class='title-bar__title' and (contains(text(),'Report') or contains(text(),'設定'))]",
+          "selector": "//div[@class='title-bar__title' and contains(text(),'設定')]",
           "strategy": "xpath"
         }
       }

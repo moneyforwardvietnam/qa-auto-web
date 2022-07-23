@@ -11,7 +11,6 @@ import util.Helper;
 import util.WebDriverUtil;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class QuotationDefaultSetting extends BaseStep {
     private WebDriverUtil driverUtil;
@@ -100,7 +99,6 @@ public class QuotationDefaultSetting extends BaseStep {
         WebDriverManager.firefoxdriver().setup();
         WebDriver ffDriver = new FirefoxDriver();
         WebDriverUtil ffDriverUtil = new WebDriverUtil(ffDriver);
-        ffDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         ffDriverUtil.redirectTo(context.getContext("baseURL"));
         ffDriverUtil.assertPageShowUp("PRE_LOGIN_PAGE");

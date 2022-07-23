@@ -87,7 +87,7 @@ Feature: Quotation
 
 
   @QDS-13 @Func @Quotation
-  Scenario Outline: QDS-13 Verify two users in the same office have same Quotation setting
+  Scenario Outline: QDS-13 Verify two different offices have unique default format settings of Quotation
     Given User navigate to "Settings" on left menu
       And "SETTINGS_PAGE" shows up
     When User clicks on "SETTINGS_PAGE_SUB_MENU_QUOTATION_ITEM_BUTTON"
@@ -203,6 +203,28 @@ Feature: Quotation
     Examples:
       | issuer_office_1_input |
       | ARM Test Office A     |
+
+
+  @QDS-0 @UI @Quotation @Quotation_list
+  Scenario: Verify can access Quotation list and check UI of Quotation List
+    Given User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+      And "QUOTATION_PAGE_FILTER_BY_QUOTATION_NUM_INPUT" is present
+      And "QUOTATION_PAGE_FILTER_BY_QUOTATION_CLIENT_INPUT" is present
+      And "QUOTATION_PAGE_FILTER_BY_QUOTATION_TITLE_INPUT" is present
+      And "QUOTATION_PAGE_FILTER_BY_QUOTATION_QUOTE_DATE_DATEPICKER" is present
+      And "QUOTATION_PAGE_FILTER_BY_CREATOR_DROPDOWN" is present
+      And "QUOTATION_PAGE_FILTER_BY_ESTIMATED_AMOUNT_FROM_INPUT" is present
+      And "QUOTATION_PAGE_FILTER_BY_ESTIMATED_AMOUNT_TO_INPUT" is present
+      And "QUOTATION_PAGE_FILTER_BUTTON" is present
+      And "QUOTATION_PAGE_FILTER_BUTTON" should be "ENABLED"
+      And "QUOTATION_PAGE_RESET_BUTTON" is present
+      And "QUOTATION_PAGE_RESET_BUTTON" should be "ENABLED"
+      And "QUOTATION_PAGE_CREATE_BUTTON" is present
+      And "QUOTATION_PAGE_CREATE_BUTTON" should be "ENABLED"
+      And "QUOTATION_PAGE_HIDE_SHOW_FILTER_BUTTON" is present
+
+
 
 
 
