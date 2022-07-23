@@ -246,6 +246,15 @@
           "strategy": "xpath"
         }
       }
+    },
+    {
+      "name": "QUOTATION_PAGE_HIDDEN_FILTER_FORM",
+      "locators": {
+        "web": {
+          "selector": "//div[@class='filter-form' and @style='display: none;']",
+          "strategy": "xpath"
+        }
+      }
     }
   ]
 }

@@ -7,6 +7,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -140,5 +141,18 @@ public class Helper {
         for (int i = 0; i < len; i++)
             sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
+    }
+
+    public ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(String stringValue : stringArray) {
+            try {
+                //Convert String to Integer, and store it into integer array list.
+                result.add(Integer.parseInt(stringValue));
+            } catch(NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
     }
 }

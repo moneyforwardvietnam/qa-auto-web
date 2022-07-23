@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import util.CustomStringUtil;
@@ -11,6 +12,8 @@ import util.Helper;
 import util.WebDriverUtil;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class QuotationDefaultSetting extends BaseStep {
     private WebDriverUtil driverUtil;
@@ -122,5 +125,30 @@ public class QuotationDefaultSetting extends BaseStep {
         ffDriverUtil.assertElementPresent("SETTINGS_PAGE_QUOTATION_SAVED_TEMPLATE_LABEL");
         ffDriverUtil.terminate();
         helper.delaySync(2);
+    }
+
+    @And("{string} column should be sorted in {string} order by default")
+    public void columnShouldBeSortedInOrderByDefault(String header, String order) {
+        String xpath = "//span[text()='" + header + "']//parent::div//parent::th";
+        Assert.assertTrue(driverUtil.getElementByXPath(xpath).getAttribute("class").contains(order));
+    }
+
+    @Then("{string} column data of {string} table should be sorted in {string} order properly")
+    public void columnDataOfTableShouldBeSortedInOrderProperly(String header, String table, String order) {
+        ArrayList<Integer> actual = helper.getIntegerArray(driverUtil.getAllRowsByHeader(table, header));
+        ArrayList<Integer> expected = helper.getIntegerArray(context.getContext("colData"));
+
+        if (order.equalsIgnoreCase("ascending"))
+            Collections.sort(expected);
+        else
+            Collections.sort(expected, Collections.reverseOrder());
+
+        Assert.assertTrue(expected.equals(actual));
+    }
+
+    @And("User snapshot current state of {string} column data in {string} table")
+    public void userSnapshotCurrentStateOfColumnDataInTable(String header, String table) {
+        ArrayList<String> colData = driverUtil.getAllRowsByHeader(table, header);
+        context.setContext("colData", colData);
     }
 }

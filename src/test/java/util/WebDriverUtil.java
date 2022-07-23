@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebDriverUtil {
@@ -405,9 +406,51 @@ public class WebDriverUtil {
         return fileWithPath;
     }
 
-    public boolean lookUpWebTableByHeader(String header, String lookedUpVal) {
+    public boolean lookUpWebTableVertically(String header, String lookedUpVal) {
         String xpath = "//td[count(//th[.='" + header + "']/preceding-sibling::th) +1][.='" + lookedUpVal + "']";
         return getElementsByXPath(xpath).size() > 0;
+    }
+
+    public ArrayList<String> getAllRowsByHeader(String tableName, String header) {
+        int colIndex = -1;
+
+        switch (tableName) {
+            case "QUOTATION_LIST":
+                switch (header) {
+                    case "見積書番号":
+                        colIndex = 1;
+                        break;
+                    case "取引先":
+                        colIndex = 2;
+                        break;
+                    case "件名":
+                        colIndex = 3;
+                        break;
+                    case "見積日":
+                        colIndex = 4;
+                        break;
+                    case "作成者":
+                        colIndex = 5;
+                        break;
+                    case "見積金額":
+                        colIndex = 6;
+                        break;
+                }
+                break;
+        }
+        String xpath = "//tbody/tr/td[" + colIndex + "]";
+        List<WebElement> lst = getElementsByXPath(xpath);
+        if (lst.size() > 0) {
+            ArrayList<String> arr = new ArrayList<>();
+            String s1;
+            for (int i = 0; i < lst.size(); i++) {
+                xpath = "(//tbody/tr/td[" + colIndex + "])[" + (i + 1) + "]//child::div[1]";
+                s1 = getElementByXPath(xpath).getText().trim();
+                arr.add(s1);
+            }
+            return arr;
+        } else
+            return null;
     }
 
     public void terminate() {

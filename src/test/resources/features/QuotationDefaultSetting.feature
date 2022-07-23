@@ -233,6 +233,31 @@ Feature: Quotation
         | 見積金額   | ¥1,008      |
 
 
+  @QDS-1 @Func @Quotation @Quotation_list
+  Scenario: Verify can hide Hide and Show filter functionality
+    Given User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+    When User clicks on "QUOTATION_PAGE_HIDE_SHOW_FILTER_BUTTON"
+      And User waits for 2 seconds
+    Then "QUOTATION_PAGE_HIDDEN_FILTER_FORM" is present in 5 timeout
+    When User clicks on "QUOTATION_PAGE_HIDE_SHOW_FILTER_BUTTON"
+      And User waits for 2 seconds
+    Then "QUOTATION_PAGE_HIDDEN_FILTER_FORM" is not present in 5 timeout
+
+
+  @QDS-2 @Func @Quotation @Quotation_list
+  Scenario: Verify Pagination, Sorting and Filter in Quotation
+    Given User navigate to "Quotations" on left menu
+      And "QUOTATION_PAGE" shows up in 5 timeout
+      And "見積書番号" column should be sorted in "descending" order by default
+      And User waits for 1 seconds
+    When User clicks on "DIV" by "見積書番号"
+      And User waits for 1 seconds
+      And User snapshot current state of "見積書番号" column data in "QUOTATION_LIST" table
+      And User clicks on "DIV" by "見積書番号"
+      And User waits for 1 seconds
+    Then "見積書番号" column data of "QUOTATION_LIST" table should be sorted in "ascending" order properly
+
 
 
 

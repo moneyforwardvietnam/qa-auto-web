@@ -195,7 +195,7 @@ public class CommonSteps extends BaseStep {
         for (Map.Entry<String, String> entry : table.entrySet()) {
             header = entry.getKey().trim();
             value = entry.getValue().trim();
-            if (!driverUtil.lookUpWebTableByHeader(header, value))
+            if (!driverUtil.lookUpWebTableVertically(header, value))
                 helper.writeStepFailed("Data not found -> Header = " + header + " , Value = " + value);
         }
     }
